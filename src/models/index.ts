@@ -26,8 +26,6 @@ pool.on('error', (err) => {
 });
 
 const db = {
-	query: (text: string, params: any[], callback: (err: Error | null, result: any) => void) => {
-		return pool.query(text, params, callback);
-	},
+	query: (queryString: string, params: (string | number)[]) => pool.query(queryString, params),
 };
 export default db;
